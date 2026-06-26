@@ -30,9 +30,9 @@ function RegisterForm() {
     try {
       if (!validateForm()) return;
 
-      await createUserWithEmailAndPassword(auth, email, password);
+      const userCredential = await createUserWithEmailAndPassword(auth, email, password);
 
-      login(auth.currentUser);
+      login(userCredential.user);
 
       notyf.success("Registered successfully");
 
