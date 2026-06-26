@@ -9,9 +9,12 @@ function AuthProvider({children}:{children:React.ReactNode}){
      const login =(userData:any)=>{
      setuser(userData)
     }
+    const logout=()=>{
+        setuser(null)
+    }
     const isAuthenticated = !!user
     return(
-        <AuthContext.Provider value={{user,login,isAuthenticated}}>
+        <AuthContext.Provider value={{user,login,logout,isAuthenticated}}>
          {children}
         </AuthContext.Provider>
     )
