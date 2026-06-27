@@ -16,9 +16,13 @@ function Logout() {
   };
   return (
     <>
-      <button className="bg-white px-4 py-2 rounded" onClick={handleLogout}>
-        Logout
-      </button>
+<button
+  className="bg-gradient-to-r from-rose-400 via-pink-400 to-pink-500 text-white font-semibold px-5 py-2 rounded-lg shadow-md hover:opacity-90 transition duration-300"
+  onClick={handleLogout}
+>
+  🚪 Logout
+</button>
+
     </>
   );
 }

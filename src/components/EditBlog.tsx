@@ -19,7 +19,7 @@ function EditBlog({ blog ,getBlogs}: props) {
 
   const updateBlog = async () => {
     try {
-      if(!title||!content){
+      if(!title.trim()||!content.trim()){
         notyf.error("please fill all fields")
         return;
       }
@@ -35,44 +35,44 @@ function EditBlog({ blog ,getBlogs}: props) {
 return (
   <>
     {openedit && (
-      <div className="fixed inset-0 bg-black/50 flex items-center justify-center">
-        <div className="bg-white w-full max-w-lg rounded-xl shadow-2xl p-6">
-          <h2 className="text-2xl font-bold text-center mb-6">
-            Edit Blog
+      <div className="fixed inset-0 bg-black/40 backdrop-blur-sm flex items-center justify-center">
+        <div className="bg-gradient-to-r from-pink-100 via-rose-100 to-purple-100 w-full max-w-lg rounded-2xl shadow-2xl p-8">
+          <h2 className="text-3xl font-extrabold text-center mb-6 text-transparent bg-clip-text bg-gradient-to-r from-pink-500 to-purple-600">
+            ✏️ Edit Blog
           </h2>
 
-          <div className="flex flex-col gap-4">
+          <div className="flex flex-col gap-5">
             <div>
-              <label className="block mb-2 font-medium">Title</label>
+              <label className="block mb-2 font-semibold text-gray-700">Title</label>
               <input
                 type="text"
                 value={title}
                 onChange={(e) => setTitle(e.target.value)}
-                className="w-full border rounded-lg p-3 outline-none focus:ring-2 focus:ring-green-500"
+                className="w-full border border-pink-300 rounded-lg p-3 outline-none focus:ring-2 focus:ring-pink-400"
               />
             </div>
 
             <div>
-              <label className="block mb-2 font-medium">Content</label>
+              <label className="block mb-2 font-semibold text-gray-700">Content</label>
               <textarea
                 value={content}
                 onChange={(e) => setContent(e.target.value)}
                 rows={6}
-                className="w-full border rounded-lg p-3 outline-none resize-none focus:ring-2 focus:ring-green-500"
+                className="w-full border border-pink-300 rounded-lg p-3 outline-none resize-none focus:ring-2 focus:ring-pink-400"
               />
             </div>
 
-            <div className="flex justify-end gap-3 mt-2">
+            <div className="flex justify-end gap-4 mt-4">
               <button
                 onClick={handleopen}
-                className="px-4 py-2 rounded-lg bg-gray-400 text-white hover:bg-gray-500"
+                className="px-5 py-2 rounded-lg bg-gray-300 text-gray-700 hover:bg-gray-400 transition duration-300"
               >
                 Cancel
               </button>
 
               <button
                 onClick={updateBlog}
-                className="px-4 py-2 rounded-lg bg-green-600 text-white hover:bg-green-700"
+                className="px-5 py-2 rounded-lg bg-gradient-to-r from-pink-500 to-rose-500 text-white font-semibold shadow-md hover:opacity-90 transition duration-300"
               >
                 Save Changes
               </button>
@@ -83,12 +83,13 @@ return (
     )}
 
     <button
-      className="bg-green-500 text-white px-4 py-2 rounded-lg hover:bg-green-600"
+      className="bg-gradient-to-r from-pink-400 via-pink-500 to-rose-500 text-white px-5 py-2 rounded-lg shadow-md hover:opacity-90 transition duration-300"
       onClick={handleopen}
     >
       Edit
     </button>
   </>
 );
+
 }
 export default EditBlog;

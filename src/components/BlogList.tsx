@@ -8,39 +8,36 @@ type Props = {
 };
 
 function BlogList({ blogs, getBlogs }: Props) {
-  return (
-    <div className="grid gap-4 p-4">
-      {blogs.map((blog) => (
-        <div
-          key={blog.id}
-          className="border rounded-lg p-4 shadow-lg bg-orange-500"
-        >
-          <h2 className="text-xl font-bold text-white">
-            {blog.title}
-          </h2>
+return (
+  <div className="grid gap-6 p-6">
+    {blogs.map((blog) => (
+      <div
+        key={blog.id}
+        className="rounded-xl p-6 shadow-md bg-gradient-to-r from-pink-200 via-pink-100 to-rose-100 hover:shadow-lg transition-shadow duration-300"
+      >
+        <h2 className="text-2xl font-bold text-gray-800 mb-2">
+          {blog.title}
+        </h2>
 
-          <p className="text-white mt-2">
-            {blog.content}
-          </p>
+        <p className="text-gray-700 leading-relaxed">
+          {blog.content}
+        </p>
 
-          <small className="block mt-3 text-white">
-            By {blog.authorName}
-          </small>
+        <small className="block mt-4 text-gray-500 italic">
+          By {blog.authorName}
+        </small>
 
-          {blog.authorId === auth.currentUser?.uid && (
-            <div className="flex justify-end gap-3 mt-4">
-              <EditBlog blog={blog} getBlogs={getBlogs} />
+        {blog.authorId === auth.currentUser?.uid && (
+          <div className="flex justify-end gap-4 mt-6">
+            <EditBlog blog={blog} getBlogs={getBlogs} />
+            <DeleteBlog blogId={blog.id} getBlogs={getBlogs} />
+          </div>
+        )}
+      </div>
+    ))}
+  </div>
+);
 
-              <DeleteBlog
-                blogId={blog.id}
-                getBlogs={getBlogs}
-              />
-            </div>
-          )}
-        </div>
-      ))}
-    </div>
-  );
 }
 
 export default BlogList;

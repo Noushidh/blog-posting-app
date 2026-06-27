@@ -31,7 +31,11 @@ function RegisterForm() {
     try {
       if (!validateForm()) return;
 
-      const userCredential = await createUserWithEmailAndPassword(auth, email, password);
+      const userCredential = await createUserWithEmailAndPassword(
+        auth,
+        email,
+        password,
+      );
 
       login(userCredential.user);
 
@@ -50,57 +54,49 @@ function RegisterForm() {
     }
   };
 
+  return (
+    <div className="flex justify-center items-center min-h-screen bg-gradient-to-r from-green-100 via-teal-100 to-blue-100">
+      <div className="bg-white p-8 rounded-2xl shadow-2xl w-96">
+        <h1 className="text-3xl font-extrabold text-center mb-6 text-transparent bg-clip-text bg-gradient-to-r from-green-500 to-teal-600">
+          Create Account
+        </h1>
 
-return (
-  <div className="flex justify-center items-center min-h-screen bg-gray-100">
-    <div className="bg-white p-6 rounded-lg shadow-md w-80">
-      <h1 className="text-2xl font-bold text-center mb-6">
-        Register
-      </h1>
+        <label className="block mb-2 font-semibold text-gray-700">Email</label>
+        <input
+          type="email"
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
+          placeholder="Enter Email"
+          className="w-full border border-gray-300 rounded-lg p-3 mb-4 focus:outline-none focus:ring-2 focus:ring-green-400"
+        />
 
-      <label className="block mb-1 font-medium">
-        Email
-      </label>
+        <label className="block mb-2 font-semibold text-gray-700">
+          Password
+        </label>
+        <input
+          type="password"
+          value={password}
+          onChange={(e) => setPassword(e.target.value)}
+          placeholder="Enter Password"
+          className="w-full border border-gray-300 rounded-lg p-3 mb-6 focus:outline-none focus:ring-2 focus:ring-green-400"
+        />
 
-      <input
-        type="email"
-        value={email}
-        onChange={(e) => setEmail(e.target.value)}
-        placeholder="Enter Email"
-        className="w-full border rounded p-2 mb-4"
-      />
-
-      <label className="block mb-1 font-medium">
-        Password
-      </label>
-
-      <input
-        type="password"
-        value={password}
-        onChange={(e) => setPassword(e.target.value)}
-        placeholder="Enter Password"
-        className="w-full border rounded p-2 mb-6"
-      />
-
-      <button
-        onClick={handleRegister}
-        className="w-full bg-green-500 text-white rounded p-2 hover:bg-green-600"
-      >
-        Register
-      </button>
-
-      <p className="text-center mt-4 text-sm">
-        Already have an account?{" "}
-        <Link
-          to="/"
-          className="text-blue-500 hover:underline"
+        <button
+          onClick={handleRegister}
+          className="w-full bg-gradient-to-r from-green-500 to-teal-600 text-white font-semibold rounded-lg p-3 hover:opacity-90 transition duration-300"
         >
-          Login
-        </Link>
-      </p>
+          Register
+        </button>
+
+        <p className="text-center mt-6 text-gray-600">
+          Already have an account?{" "}
+          <Link to="/" className="text-blue-500 font-semibold hover:underline">
+            Login
+          </Link>
+        </p>
+      </div>
     </div>
-  </div>
-);
+  );
 }
 
 export default RegisterForm;
