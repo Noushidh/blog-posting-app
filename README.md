@@ -1,5 +1,26 @@
 # 📖 Blog App (Production-Ready Full-Stack Application)
 
+> 🚀 **Live Demo:** [blog-posting-app-bay.vercel.app](https://blog-posting-app-bay.vercel.app/)
+
+---
+
+## 📸 Application Preview
+
+### 📋 Main Dashboard
+![All Blogs Dashboard](public/Screenshot%202026-06-28%20001114.png)
+
+<details>
+<summary>🔐 Click to view Authentication Pages (Login & Register)</summary>
+<br />
+
+| Login Page | Registration Page |
+| :---: | :---: |
+| ![Login](public/Screenshot%202026-06-28%20001127.png) | ![Register](public/Screenshot%202026-06-28%20001139.png) |
+
+</details>
+
+---
+
 A modern, high-performance, full-stack blog platform engineered with **React**, **TypeScript**, and **Firebase**. The application leverages the **React Context API** for robust global state management, **React Router DOM** for advanced declarative routing, and is styled using **Tailwind CSS** for a fluid, responsive user experience.
 
 ---
